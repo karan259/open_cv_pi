@@ -50,6 +50,8 @@ Now let us build your own Line Follower Pi in following simple steps :
 				Fourth argument is to change the y coordinate of the origin of the ROI.
 				
 				Fifth argument is the height of this rectangle.
+				
+				Press Ctrl+C in terminal to stop the program. 
 	Since there are four source code, So I would prefer you to use the latest one for the best result. Latest code will be having greater number in the name of the code.			
 	That's all for this project. Congratulation! now you have your own Line Follower Pi with you.
 	Have a great fun with your Line Follower Pi.
