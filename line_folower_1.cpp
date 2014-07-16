@@ -3,7 +3,8 @@
 # Program Name: Pi_Cam_Line_Follower.cpp                                     
 # ================================     
 # This code is to make line follower autonomous bot
-# The bot can follow Black and White colored line.                                  
+# The bot can follow Black and White colored line.
+#In this version I have add some feaure like you can track white and black just by giving an argument on commandline. Apart from this I have added so many comment to make it more understandable, changed some variable name                               
 # http://www.dexterindustries.com/                                                                
 # History
 # ------------------------------------------------

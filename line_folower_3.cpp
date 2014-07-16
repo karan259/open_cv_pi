@@ -3,7 +3,9 @@
 # Program Name: Pi_Cam_Line_Follower.cpp                                     
 # ================================     
 # This code is for making an autonomous line follower bot.
-# The bot can follow Black and White colored line.                                  
+# The bot can follow Black and White colored line.
+#In this version i have added few more comment to make it more understandable, commented out the code for showing the image and also remove the optional argument related to that.
+#Added few lines to check the time taken per cycle, which has been commented out. Added two more filter namely morphological opening and closing, Morphological closing is commented out due to time taken taken per cycle.                           
 # http://www.dexterindustries.com/                                                                
 # History
 # ------------------------------------------------
@@ -72,7 +74,7 @@ using namespace cv;
 
 int result,speed_1,speed_2;
 int motor1,motor2;
-Moments mu;
+Moments mu;	//To handle image property of thresholded image.
 
 #undef DEBUG
 
@@ -120,8 +122,6 @@ The value of offset rnges from -1 to 1. This returns -2 if it could not find the
 */
 float x_Offset(Mat imgROI, int width)
 {	
-	
-
 	/*
 	Moment is class to store some information about the pixel
 	values, from which we can easily get the center of white
@@ -320,7 +320,7 @@ int main(int argc,char **argv)
 			//Initialize the ROI
 			if(not_assigned)
 			{
-				if(argc == 7)	//If user specify the arguments of the ROI
+				if(argc == 6)	//If user specify the arguments of the ROI
 				{
 					ROI_y = image.rows*atoi(argv[4])/100.00;		//Percentage by which orgin of the ROI has to be shifted in y direction.
 					ROI_width = image.cols;	//Width of the ROI
@@ -392,6 +392,6 @@ int main(int argc,char **argv)
 	//if(show_image)	// If the show_image is 1 then it closes the window 
 		//destroyWindow("Project@Dexter_Industry");	//Close the window on which images were getting shown.
 		
-	cout<<"Closing Camera..."<<endl;
+	//cout<<"Closing Camera..."<<endl;
 	return 1;
 }

@@ -3,7 +3,9 @@
 # Program Name: Pi_Cam_Line_Follower.cpp                                     
 # ================================     
 # This code is for making an autonomous line follower bot.
-# The bot can follow Black and White colored line.                                  
+# The bot can follow Black and White colored line.
+#in this version few variables have been made local to function instead of gloabal, change the function type, added few more optional argument which let you change the geometrical properties of ROI.
+#Set the constant speed while turning, Change the logic for turninng. Made an if condition to avoid unnecessary move movement of bot, which is if number of white pixel is greater than some specified value then move the bot.
 # http://www.dexterindustries.com/                                                                
 # History
 # ------------------------------------------------
