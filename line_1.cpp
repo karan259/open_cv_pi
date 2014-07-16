@@ -185,7 +185,6 @@ void move_bot()
 			//for(int i = 0;i<2;i++)
 			right();
 			BrickPiUpdateValues();	//Update the motor values
-		
 		}	
 	}
 	else{
@@ -248,18 +247,17 @@ int main(int argc,char **argv)
 			imshow("Project@Dexter_Industry",imgROI);
 	        	//if ( i%5==0 )  cout<<"\r captured "<<i<<" images"<<std::flush;
 			
-			if( waitKey(1) == 27)
+			if( waitKey(1) == 27)	// If Esc has pressed
 			{
 				stop();
 				break;
 			}
-
 			
 			//usleep(10000);			//sleep for 10 ms
 			
 		}
 	}
-	//BrickPiUpdateValues();
+	BrickPiUpdateValues();
 	raspiCamCvReleaseCapture(&camera);
 	destroyWindow("Project@Dexter_Industry");
 	cout<<"Closing Camera..."<<endl;
