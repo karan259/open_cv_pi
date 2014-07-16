@@ -28,12 +28,20 @@ g++ `pkg-config --cflags opencv` my_code.cpp -o my_code `pkg-config --libs openc
 /*
 How to run:
 
-./my_code thresold_value speed	is_black
+./my_code thresold_value speed	is_black show_image ROI_y ROI_height
 
 threshold_vlaue - is a threshold for detection. Keep it higher if you are trying to detect white otherwise keep it lower if you trying to detect black
 						threshold ranges from 0-255.
 speed - Normal speed with which bot will forward
+
 is_black - 0 for detecting white and 1 for detecting black
+
+show_image - An optional argument. By default it shows the image. If you don't want to see the image what it tracks then give it 0.
+
+ROI_y - An optional argument to shift your ROI in y direction. By default it is at 1/3 of  y axix. Since y-axis is constrained by the no of rows of image matrix
+			Enter this in percentage form like if you want to make the origin of ROI as 90% of the y-axis of the original image then enter as 90.
+
+ROI_height - An optional argument to change the height of ROI. By default it is 1/6 of the original height. Enter this as explained above for ROI_y.
 
 */
 
@@ -64,6 +72,7 @@ using namespace cv;
 
 int result,speed_1,speed_2;
 int motor1,motor2;
+Moments mu;
 
 #undef DEBUG
 
@@ -123,7 +132,6 @@ float x_Offset(Mat imgROI, int width)
 	m01 - sum of y coordinate where pixels are white
 	moments(InputArray array, bool binaryImage) is a function 	which returns Moments.
 	*/
-	Moments mu;
 	
 	/*
 	Here the argument is true because imgROI is binary image
@@ -148,76 +156,106 @@ float x_Offset(Mat imgROI, int width)
 	return offset;
 }
 
-void move_bot(int offset, int max_speed)
-{
-	if( fabs(offset)>0.2 && fabs(offset)<0.4)	// If the offset is more than 30% on either side from the center of the image
+void move_bot(float offset, int normal_speed)
+{	
+	if(mu.m00>2500)
 	{
-		if(offset>0)		// If the x coordinate of the path is on the left side from the center
-		{	speed_1 = speed_2=max_speed+max_speed*0.1;	// Increase the speed of both wheels by 10%
-			left();	
-			BrickPiUpdateValues();//Update the motor values 		
-		}
-		else
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.2;		// Increase the speed of both wheels by 10%
-			right();
-			BrickPiUpdateValues();//Update the motor values 		
-		}
-	}
-	else if(fabs(offset)>0.4 && fabs(offset)<0.6)	// If the offset is more than 50% on either side from the center of the image
-	{
-		if(offset>0)		// If the x coordinate of the path is on the left side from the center
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.2;		// Increase the speed of both wheels by 20%
-			left();	
-			BrickPiUpdateValues();	//Update the motor values
-		}
-		else
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.2;		// Increase the speed of both wheels by 20%
-			right();
-			BrickPiUpdateValues();	//Update the motor values
-		}
-	}
-	else if(fabs(offset)>0.6 && fabs(offset)<0.8)	// If the offset is more than 70% on either side from the center of the image
-	{
-		if(offset>0)		// If the x coordinate of the path is on the left side from the center
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.3;		// Increase the speed of both wheels by 30%
-			left();	
-			BrickPiUpdateValues();	//Update the motor values
-		}
-		else
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.3;		// Increase the speed of both wheels by 30%
-			right();
-			BrickPiUpdateValues();	//Update the motor values
+		speed_1 = speed_2 = normal_speed;	//Set the normal speed 
 		
-		}	
-	}
-	else if(fabs(offset)>0.8)	// If the offset is more than 90% on either side from the center of the image
-	{
-		if(offset>0)		// If the x coordinate of the path is on the left side from the center
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.4;		// Increase the speed of both wheels by 40%
-			left();	
-			BrickPiUpdateValues();	//Update the motor values
+		if(fabs(offset)>0.4 && fabs(offset)<0.6)	// If the offset is more than 70% on either side from the center of the image
+		{
+			//if((normal_speed+normal_speed*0.05)<255)
+				speed_1=speed_2= 50; //Set the speed to 50
+			
+			if(offset>0)		// If the x coordinate of the path is on the left side from the center
+			{
+				speed_2 = 0;		//Stop the left wheel	
+				fwd();	//Run forward with left wheel stopped i.e turn left
+				//left();	
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"l_0.4"<<endl;
+			}
+			else
+			{	
+				speed_1 = 0;	//Stop the right wheel
+				fwd();	//Run forward with right wheel stopped i.e turn right
+				//right();
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"r_0.4"<<endl;
+			}	
 		}
-		else
-		{	
-			speed_1=speed_2=max_speed+max_speed*0.4;		// Increase the speed of both wheels by 40%
-			right();
+		else if(fabs(offset)>0.6 )//&& fabs(offset)<0.6)	// If the offset is more than 70% on either side from the center of the image
+		{
+			//if((normal_speed+normal_speed*0.1)<255)
+				speed_1=speed_2= 60;	//Set the seed to 60
+			//else	
+				//speed_1=speed_2=255;
+			if(offset>0)		// If the x coordinate of the path is on the left side from the center
+			{
+				speed_2 = 0;		//Stop the left wheel
+				fwd();	//Run forward with left wheel stopped i.e turn left	
+				//left();	
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"l_0.4"<<endl;
+			}
+			else
+			{	
+				speed_1 = 0;		//Stop the right wheel
+				fwd();	//Run forward with right wheel stopped i.e turn right
+				//right();
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"r_0.4"<<endl;
+			
+			}	
+		}
+		/*else if(fabs(offset)>0.6 && fabs(offset)<0.8)	// If the offset is more than 70% on either side from the center of the image
+		{
+			//if((normal_speed+normal_speed*0.15)<255)
+				speed_1=speed_2=60;//normal_speed+normal_speed*0.15;		// Increase the speed of both wheels by 30%
+			//else	
+				//speed_1=speed_2=255;
+			if(offset>0)		// If the x coordinate of the path is on the left side from the center
+			{	
+				left();	
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"l_0.6"<<endl;
+			}
+			else
+			{	
+				right();
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"r_0.6"<<endl;
+			
+			}	
+		}
+		else if(fabs(offset)>0.8)	// If the offset is more than 90% on either side from the center of the image
+		{
+			//if((normal_speed+normal_speed*0.2)<255)
+				speed_1=speed_2=60;//normal_speed+normal_speed*0.2;		// Increase the speed of both wheels by 30%
+			//else	
+				//speed_1=speed_2=255;
+			if(offset>0)		// If the x coordinate of the path is on the left side from the center
+			{	
+				left();	
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"l_0.8"<<endl;
+			}
+			else
+			{	
+				right();
+				BrickPiUpdateValues();	//Update the motor values
+				//cout<<"r_0.8"<<endl;
+			
+			}	
+		}*/
+		else	// Move forward with the specified speed by the user
+		{
+			//speed_1=speed_2=normal_speed;		
+			fwd();
 			BrickPiUpdateValues();	//Update the motor values
-		
-		}	
+			//cout<<"s"<<endl;
+		}
 	}
-	else	// Move forward with the specified speed by the user
-	{
-		speed_1=speed_2=max_speed;		
-		fwd();
-		BrickPiUpdateValues();	//Update the motor values
-	}
-	
 }
 
 int main(int argc,char **argv) 
@@ -251,16 +289,13 @@ int main(int argc,char **argv)
 	float offset;	// Offset from center
 	
 	int thresh = atoi(argv[1]);	//	threshold is the first parameter given by the user
-	int max_speed= atoi(argv[2]);	//	Speed is the second parameter given by the user
+	int normal_speed= atoi(argv[2]);	//	Speed is the second parameter given by the user
 	int is_black = atoi(argv[3]);	// is_black is 0 for white and 1 for black. Third parameter given by the user
-	int show_image;
+	int show_image =1;
 	int ROI_y, ROI_width, ROI_height;	// Parameters for region of interest. These are the optional parameter provided by the user.
 	bool not_assigned = true;	//Just to ensure that the region of interest is properly defined
 	if(argc >=5)
-		show_image = atoi(argv[4]);	// This is just an optional variable to disable the video streaming on screen.
-	else	
-		show_image = 1;
-		
+		show_image = atoi(argv[4]);	// This is just an optional variable to disable the video streaming on screen.		
 
 	RaspiCamCvCapture* camera = raspiCamCvCreateCameraCapture(0);	// Declare a variable to handle the streaming from Raspberry Pi Camera
     
@@ -280,23 +315,25 @@ int main(int argc,char **argv)
 		while(true)		// An infinite loop
 		{	
 			image = raspiCamCvQueryFrame( camera );	// Get the frame from which is captured by camera
+			
+			//Initialize the ROI
 			if(not_assigned)
 			{
-				if(argc == 7)
+				if(argc == 7)	//If user specify the arguments of the ROI
 				{
-					ROI_y = image.rows*atoi(argv[5])/100;
-					ROI_width = image.cols;
-					ROI_height = image.rows*atoi(argv[6])/100;
+					ROI_y = image.rows*atoi(argv[5])/100.00;		//Percentage by which orgin of the ROI has to be shifted in y direction.
+					ROI_width = image.cols;	//Width of the ROI
+					ROI_height = image.rows*atoi(argv[6])/100.00;	//Height of the ROI in terms of the percentage of the original image.
 				}
 				else 
 				{
-					ROI_y = image.rows/3;
-					ROI_width = image.cols;
-					ROI_height = image.rows/6;
+					ROI_y = image.rows/3;	//Origin of the ROI is shifted by 1/3 of the y-axis of the original image.
+					ROI_width = image.cols;	//Width of the original image
+					ROI_height = image.rows/6;	//Height of the ROI is 1/6 of the height of the original image.
 				}
 				not_assigned = false;
 			}
-			imgROI=image(Rect(0, ROI_y, ROI_width, ROI_height));	//Getting a region of interest
+			imgROI=image(Rect(0, ROI_y, ROI_width, ROI_height));	//Get the region of interest(ROI)
 
 			//Convert the ROI to gray color
 			cvtColor( imgROI, imgROI, CV_BGR2GRAY );
@@ -331,7 +368,7 @@ int main(int argc,char **argv)
 			
 			offset = x_Offset(imgROI, ROI_width);		// Call the x_Offset function to get the offset
 			
-			move_bot(offset, max_speed);	//Call the move_bot function which moves the bot with the specified speed
+			move_bot(offset, normal_speed);	//Call the move_bot function which moves the bot with the specified speed
 			
 			if( show_image )	// If the show_image is 1 then it shows the image and it does not if it is 0
 			{
@@ -346,7 +383,7 @@ int main(int argc,char **argv)
 			//usleep(10000);			//sleep for 10 ms
 		}
 	}
-	//BrickPiUpdateValues();
+	BrickPiUpdateValues();
 	raspiCamCvReleaseCapture(&camera);	// Close the the streaming.
 	
 	if(show_image)	// If the show_image is 1 then it closes the window 
