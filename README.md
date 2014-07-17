@@ -18,13 +18,13 @@ Now let us build your own Line Follower Pi in following simple steps
 
 1. **Installation of opencv on your Raspberry Pi** - We will install opencv on the Raspberry Pi. Here is a guide for the installation of opencv on Raspberry Pi. Here is the link to the installatin guide for opencv on Raspberry Pi : https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit With this document. Installation will be easier. Can be able to run some simple opencv program with and without using Raspberry Pi camera. 
 
-**General Information about the following steps** 
+	**General Information about the following steps** 
 
-To run this program on your Pi. Every color is made of 3 primary color namely Red(R), Green(G) and Blue(B). In short RGB. In opencv image captured from camera will be in BGR form means Blue, Green and Red. This might seeems that it just a change in the order of color. But it is not like that. In opencv the order by which we specify the color is dependent on the image matrix.
+	To run this program on your Pi. Every color is made of 3 primary color namely Red(R), Green(G) and Blue(B). In short RGB. In opencv image captured from camera will be in BGR form means Blue, Green and Red. This might seeems that it just a change in the order of color. But it is not like that. In opencv the order by which we specify the color is dependent on the image matrix.
 
-In opencv there are many color spaces other than RGB like HSV, GRAY etc. In this project we will be using Gray color space.
+	In opencv there are many color spaces other than RGB like HSV, GRAY etc. In this project we will be using Gray color space.
 
-In opencv it is very simple to convert the BGR format image to Gray color image.
+	In opencv it is very simple to convert the BGR format image to Gray color image.
 The gray color image is a single channel image i.e. only one 2D matrix. In this matrix elements can have value from 0 to 255.0 represents completly blacck and 255 represents completely white.
     
 2. **Detection and Tracking** - First have to compile the source code. After the compilation we will run the program with few arguments. *See the end of this ReadMe file for compilation and running of the source code*.
