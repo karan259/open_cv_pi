@@ -30,6 +30,7 @@ The gray color image is a single channel image i.e. only one 2D matrix. In this 
 2. **Making this program to run on your Pi** - First have to compile the source code. After the compilation we will run the program with few arguments. *See the end of this ReadMe file for compilation and running of the source code*.
 
 *Arguments for this steps*
+
 1. threshold - which signifies the amount of whiteness or blackness. If trying to track white line then try to keep it higher. If trying to track the black line then try to keep it lower.This ranges from 0 to 255.
 
 2. speed - with which you would like to move your Line Follower Pi. Try to use the smaller value like near 100. So that overshoot does not take place.
