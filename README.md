@@ -1,7 +1,7 @@
 Line Follower Pi
 ==========
 
-The project will help you in tracking colored ball. It is a basic opencv project. In this project we will be using Raspberry Pi. The project is for making an autonomous line follower bot using the technique of image processing. The bot can track white line in balck background and black line in white background. This will guide you from the installation of opencv on your Pi to the completion of the line follower robot.
+The project will help you in tracking colored ball. It is a basic opencv project. In this project we will be using Raspberry Pi. The project is for making an autonomous line follower robot using the technique of image processing. The robot can track white line in balck background and black line in white background. This will guide you from the installation of opencv on your Pi to the completion of the line follower robot.
 
 Components required for this project are:
 - Raspberry Pi
@@ -15,18 +15,18 @@ Components required for this project are:
 	
 Setting up the software in the following simple steps:
 
-1. **Installation of opencv on your Raspberry Pi** - We will install opencv on the Raspberry Pi. Here is a guide for the installation of opencv on Raspberry Pi. Here is the link to the installatin guide for opencv on Raspberry Pi : https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit With this document. Installation will be easier. Can be able to run some simple opencv program with and without using Raspberry Pi camera. 
+1. **Installation of opencv on your Raspberry Pi** - We will install opencv on the Raspberry Pi. Here is the link to the installatin guide for opencv on Raspberry Pi: https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit  
 
-	**General Information about the following steps** 
+	**General Information for the following steps** 
 
-	To run this program on your Pi. Every color is made of 3 primary color namely Red(R), Green(G) and Blue(B). In short RGB. In opencv image captured from camera will be in BGR form means Blue, Green and Red. This might seeems that it just a change in the order of color. But it is not like that. In opencv the order by which we specify the color is dependent on the image matrix.
+	Every color is made of 3 primary color namely Red(R), Green(G) and Blue(B). In short RGB. In opencv image captured from camera will be in BGR form means Blue, Green and Red. In opencv the order by which we specify the color is dependent on the image matrix.
 
 	In opencv there are many color spaces other than RGB like HSV, GRAY etc. In this project we will be using Gray color space.
 
 	In opencv it is very simple to convert the BGR format image to Gray color image.
-The gray color image is a single channel image i.e. only one 2D matrix. In this matrix elements can have value from 0 to 255.0 represents completly blacck and 255 represents completely white.
+The gray color image is a single channel image i.e. only one 2D matrix. In this matrix elements can have value from 0 to 255. 0 represents completly black and 255 represents completely white.
     
-2. **Detection and Tracking** - First have to compile the source code. After the compilation we will run the program with few arguments. *See the end of this ReadMe file for compilation and running of the source code*.
+2. **Detection and Tracking** - Firstly we have to compile the source code. After compiling we will run the program with a few arguments. See the end of this ReadMe file for *How to compile and run* the source code.
 
 **Arguments to run this program**
 
@@ -44,9 +44,8 @@ The gray color image is a single channel image i.e. only one 2D matrix. In this 
 
 5. **ROI_height** - this is the height of this rectangle. Give this in percentage as explained above.
 				
-Press Ctrl+C in terminal to stop the program. 
+Press **Ctrl+C** in terminal to stop the program. 
 
-Since there are four source code, So I would prefer you to use the latest one for the best result. Latest code will be having greater number in the name of the code.			
 That's all for this project. Now you have your own Line Follower Pi.
 
 **How to compile**
