@@ -27,9 +27,9 @@ In opencv there are many color spaces other than RGB like HSV, GRAY etc. In this
 In opencv it is very simple to convert the BGR format image to Gray color image.
 The gray color image is a single channel image i.e. only one 2D matrix. In this matrix elements can have value from 0 to 255.0 represents completly blacck and 255 represents completely white.
     
-2. **Making this program to run on your Pi** - First have to compile the source code. After the compilation we will run the program with few arguments. *See the end of this ReadMe file for compilation and running of the source code*.
+2. **Detection and Tracking** - First have to compile the source code. After the compilation we will run the program with few arguments. *See the end of this ReadMe file for compilation and running of the source code*.
 
-*Arguments for this steps*
+**Arguments to run this program**
 
 1. **threshold** - which signifies the amount of whiteness or blackness. If trying to track white line then try to keep it higher. If trying to track the black line then try to keep it lower.This ranges from 0 to 255.
 
