@@ -1,7 +1,7 @@
 Line Follower Pi
 ==========
 
-The project will help you in tracking colored ball. It is a basic opencv project. In this project we will be using Raspberry Pi. The project is for making an autonomous line follower robot using the technique of image processing. The robot can track white line in balck background and black line in white background. This will guide you from the installation of opencv on your Pi to the completion of the line follower robot.
+The project will help you in tracking colored ball. It is a basic opencv project. In this project we will be using Raspberry Pi. The project is for making an autonomous line follower robot using the technique of image processing. The robot can track white line in black background and black line in white background. This will guide you from the installation of opencv on your Pi to the completion of the line follower robot.
 
 Components required for this project are:
 - Raspberry Pi
