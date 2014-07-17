@@ -60,6 +60,6 @@ g++ `pkg-config --cflags opencv` line_folower_2.cpp -o test_3 `pkg-config --libs
  
 ```C++
 ./test_2 threshold speed black
-or for changing ROI property
+or using optional arguments to change the ROI property
 ./test_2 threshold speed black ROI_y ROI_height
 ```
