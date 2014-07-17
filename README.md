@@ -39,18 +39,27 @@ Here overshoot means when you runs the Line Follower Pi at higher speed at the t
 
 3. black - signifies the color of the line. 0 is to track white line and 1 is to track black line.
 
-There are few more arguments but those are optional. ROI is stands for region of interest. ROI is like a rectangle or a 2D box.
-4. item
-5. item
-3. item
+There are few more arguments but those are optional. ROI is stands for region of interest. ROI is like a rectangle or a 2D box. For better understanding of the ROI, we can think it as a rectangle. Having the width equal to width of the the original image. We can shift this in vertical direction by specifying ROI_y. By default it is at 1/3 times the y-axis of the original image. Since y-axis is constrained by the number of rows in the image matrix. By default height is equal to 1/6 times of the height of the image matrix.
 
+4. ROI_y - this argument is to change the y coordinate of the origin of the ROI. Give it in percentage like if we want to shift the 
+
+5. ROI_height - this is the height of this rectangle.
 				
-				Fourth argument is to change the y coordinate of the origin of the ROI.
-				
-				Fifth argument is the height of this rectangle.
-				
-				Press Ctrl+C in terminal to stop the program. 
-	Since there are four source code, So I would prefer you to use the latest one for the best result. Latest code will be having greater number in the name of the code.			
-	That's all for this project. Congratulation! now you have your own Line Follower Pi with you.
-	Have a great fun with your Line Follower Pi.
-	Feel free to contribute if you are interested to develope this to a next level.
+Press Ctrl+C in terminal to stop the program. 
+
+Since there are four source code, So I would prefer you to use the latest one for the best result. Latest code will be having greater number in the name of the code.			
+That's all for this project. Now you have your own Line Follower Pi.
+
+**How to compile**
+
+```C++
+g++ `pkg-config --cflags opencv` line_folower_2.cpp -o test_3 `pkg-config --libs opencv` -I/home/pi/git/robidouille/raspicam_cv -L/home/pi/git/robidouille/raspicam_cv -lraspicamcv -L/home/pi/git/raspberrypi/userland/build/lib -lmmal_core -lmmal -l mmal_util -lvcos -lbcm_host -lrt -lm -L/usr/local/lib -lwiringPi
+```
+ 
+**How to run**
+ 
+```C++
+./test_2 threshold speed black
+or for changing ROI property
+./test_2 threshold speed black ROI_y ROI_height
+```
