@@ -35,11 +35,11 @@ The gray color image is a single channel image i.e. only one 2D matrix. In this 
 
 2. **speed** - with which you would like to move your Line Follower Pi. Try to use the smaller value like near 100. So that overshoot does not take place.
 
-Here overshoot means when you runs the Line Follower Pi at higher speed at the turning point it moves ahead instead of taking a turn. This results in loss of line from the field of view of your Raspberry Pi camera. This ranges from 0 to 255.
+	Here overshoot means when you runs the Line Follower Pi at higher speed at the turning point it moves ahead instead of taking a turn. This results in loss of line from the field of view of your Raspberry Pi camera. This ranges from 0 to 255.
 
 3. **black** - signifies the color of the line. 0 is to track white line and 1 is to track black line.
 
-There are few more arguments but those are optional. ROI is stands for region of interest. ROI is like a rectangle or a 2D box. For better understanding of the ROI, we can think it as a rectangle. Having the width equal to width of the the original image. We can shift this in vertical direction by specifying ROI_y. By default it is at 1/3 times the y-axis of the original image. Since y-axis is constrained by the number of rows in the image matrix. By default height is equal to 1/6 times of the height of the image matrix.
+	There are few more arguments but those are optional. ROI is stands for region of interest. ROI is like a rectangle or a 2D box. For better understanding of the ROI, we can think it as a rectangle. Having the width equal to width of the the original image. We can shift this in vertical direction by specifying ROI_y. By default it is at 1/3 times the y-axis of the original image. Since y-axis is constrained by the number of rows in the image matrix. By default height is equal to 1/6 times of the height of the image matrix.
 
 4. **ROI_y** - this argument is to change the y coordinate of the origin of the ROI. Give it in percentage like if we want to shift the ROI by 30 percent from top then give it as 30. Similarly to shift the ROI by 50 percent in vertical direction give it as 50. Take care of the height of the ROI. As you shift the ROI down 30 percent, then we can increse the height up to  the maximum of 70 percent.  
 
