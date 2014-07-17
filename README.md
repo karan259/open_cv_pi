@@ -24,7 +24,7 @@ Setting up the software in the following simple steps:
 	In opencv there are many color spaces other than RGB like HSV, GRAY etc. In this project we will be using Gray color space.
 
 	In opencv it is very simple to convert the BGR format image to Gray color image.
-The gray color image is a single channel image i.e. only one 2D matrix. In this matrix elements can have value from 0 to 255. 0 represents completly black and 255 represents completely white.
+The gray color image is a single channel image i.e. only one 2D matrix. In this matrix elements can have value from 0 to 255. 0 represents completely black and 255 represents completely white.
     
 2. **Detection and Tracking** - Firstly we have to compile the source code. After compiling we will run the program with a few arguments. See the end of this ReadMe file for *How to compile and run* the source code.
 
