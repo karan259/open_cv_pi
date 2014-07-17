@@ -1,20 +1,19 @@
 Line Follower Pi
 ==========
 
-The project name is Line Follower Pi. The software will help you in tracking colored ball. It is a basic opencv project. In this project we will be using Raspberry Pi. The project is for making an autonomous line follower bot using the technique of image processing. The bot can track white line in balck background and black line in white background. This will guide you from the installation of opencv on your Pi to the completion of this project.
+The project will help you in tracking colored ball. It is a basic opencv project. In this project we will be using Raspberry Pi. The project is for making an autonomous line follower bot using the technique of image processing. The bot can track white line in balck background and black line in white background. This will guide you from the installation of opencv on your Pi to the completion of the line follower robot.
 
 Components required for this project are:
 - Raspberry Pi
 - Raspberry Pi camera
-- Brick Pi ( for controlling motors )
+- Brick Pi
 - Two lego motors
 - Wifi adapter 
-- Wifi connection
 - 8 GB SD card
 - Power cable for your Raspberry Pi
 - For safety of the Raspberry Pi, user may prefer the case for Raspberry Pi and Brick Pi
 	
-Now let us build your own Line Follower Pi in following simple steps
+Setting up the software in the following simple steps:
 
 1. **Installation of opencv on your Raspberry Pi** - We will install opencv on the Raspberry Pi. Here is a guide for the installation of opencv on Raspberry Pi. Here is the link to the installatin guide for opencv on Raspberry Pi : https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit With this document. Installation will be easier. Can be able to run some simple opencv program with and without using Raspberry Pi camera. 
 
