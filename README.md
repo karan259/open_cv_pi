@@ -15,7 +15,7 @@ Components required for this project are:
 	
 Setting up the software in the following simple steps:
 
-1. **Installation of opencv on your Raspberry Pi** - We will install opencv on the Raspberry Pi. Here is the link to the installatin guide for opencv on Raspberry Pi: https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit  
+1. **Installation of opencv on your Raspberry Pi** - We will install opencv on the Raspberry Pi. Here is the link to the installation guide for opencv on Raspberry Pi: https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit  
 
 	**General Information for the following steps** 
 
