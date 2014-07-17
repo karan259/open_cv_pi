@@ -31,6 +31,7 @@ The gray color image is a single channel image i.e. only one 2D matrix. In this 
 
 *Arguments for this steps*
 1. threshold - which signifies the amount of whiteness or blackness. If trying to track white line then try to keep it higher. If trying to track the black line then try to keep it lower.This ranges from 0 to 255.
+
 2. speed - with which you would like to move your Line Follower Pi. Try to use the smaller value like near 100. So that overshoot does not take place.
 
 Here overshoot means when you runs the Line Follower Pi at higher speed at the turning point it moves ahead instead of taking a turn. This results in loss of line from the field of view of your Raspberry Pi camera. This ranges from 0 to 255.
