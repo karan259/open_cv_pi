@@ -50,10 +50,6 @@ Press Ctrl+C in terminal to stop the program.
 Since there are four source code, So I would prefer you to use the latest one for the best result. Latest code will be having greater number in the name of the code.			
 That's all for this project. Now you have your own Line Follower Pi.
 
-**Note**
-
-For better result use the latest code
-
 **How to compile**
 
 ```C++
