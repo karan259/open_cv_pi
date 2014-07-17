@@ -46,8 +46,6 @@ The gray color image is a single channel image i.e. only one 2D matrix. In this 
 				
 Press **Ctrl+C** in terminal to stop the program. 
 
-That's all for this project. Now you have your own Line Follower Pi.
-
 **How to compile**
 
 ```C++
