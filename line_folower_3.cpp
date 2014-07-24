@@ -3,9 +3,7 @@
 # Program Name: Pi_Cam_Line_Follower.cpp                                     
 # ================================     
 # This code is for making an autonomous line follower bot.
-# The bot can follow Black and White colored line.
-#In this version i have added few more comment to make it more understandable, commented out the code for showing the image and also remove the optional argument related to that.
-#Added few lines to check the time taken per cycle, which has been commented out. Added two more filter namely morphological opening and closing, Morphological closing is commented out due to time taken taken per cycle.                           
+# The robot can follow Black line in white background and White line in black background.
 # http://www.dexterindustries.com/                                                                
 # History
 # ------------------------------------------------
