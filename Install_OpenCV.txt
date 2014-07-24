@@ -1,0 +1,2 @@
+Here is the link to install opencv on Raspberry Pi:
+https://docs.google.com/document/d/1op8RSzmRqjiwh9KCkuavni5GiDaExN0I9GA6pvZy1EI/edit
